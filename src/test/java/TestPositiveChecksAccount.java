@@ -26,6 +26,6 @@ public class TestPositiveChecksAccount {
     public void namePositiveTest(){
      Account account = new Account(name);
      boolean actual = account.checkNameToEmboss();
-     assertTrue(actual);
+     assertTrue("Positive scenarios not passed",actual);
     }
 }

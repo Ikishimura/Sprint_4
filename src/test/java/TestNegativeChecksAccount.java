@@ -3,7 +3,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
 @RunWith(Parameterized.class)
@@ -14,7 +13,7 @@ public class TestNegativeChecksAccount {
         this.name=name;
     }
 
-    @Parameterized.Parameters(name = "Test with negative checks {0} {1} {2} {3} {4} {5}")
+    @Parameterized.Parameters(name = "Test with negative checks {0} {1} {2} {3} {4} {5} {6}")
     public static Object [][] getNameNegativeTest(){
         return new Object[][]{
                 {"123"},
@@ -23,6 +22,7 @@ public class TestNegativeChecksAccount {
                 {"Тимоти Шаламе "},
                 {" ТимотиШаламе"},
                 {"ТимотиШаламе "},
+                {""}
         };
     }
     @Test
@@ -30,6 +30,6 @@ public class TestNegativeChecksAccount {
     public void nameNegativeTest(){
         Account account = new Account(name);
         boolean actual = account.checkNameToEmboss();
-        assertEquals(false,actual);
+        assertFalse("Negative scenarios not passed",actual);
     }
 }
