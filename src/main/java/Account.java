@@ -11,6 +11,9 @@ public class Account {
     public boolean  checkNameToEmboss() {
         final String regex = "\\S{1,9} {1}\\S{1,9}";
 
+        if (name == null) {
+            return false;
+        }
         if(Pattern.matches(regex,name)){
             System.out.println(true);
             return true;
